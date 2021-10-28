@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".criarconta">
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="230dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back" />
+
+    <EditText
+        android:id="@+id/txtconfpass"
+        android:layout_width="252dp"
+        android:layout_height="48dp"
+        android:backgroundTint="@color/white"
+        android:ems="10"
+        android:hint="Confirmar Password"
+        android:inputType="textPersonName"
+        android:password="true"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.704" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/txtconfpass"
+        app:layout_constraintEnd_toEndOf="@+id/txtconfpass"
+        app:layout_constraintHorizontal_bias="0.969"
+        app:layout_constraintStart_toStartOf="@+id/txtconfpass"
+        app:layout_constraintTop_toTopOf="@+id/txtconfpass"
+        app:layout_constraintVertical_bias="0.409"
+        app:srcCompat="@drawable/cadeado" />
+
+    <EditText
+        android:id="@+id/txtpass"
+        android:layout_width="252dp"
+        android:layout_height="48dp"
+        android:backgroundTint="@color/white"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPersonName"
+        android:password="true"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.572" />
+
+    <EditText
+        android:id="@+id/txtemail"
+        android:layout_width="252dp"
+        android:layout_height="48dp"
+        android:backgroundTint="@color/white"
+        android:ems="10"
+        android:hint="E-mail"
+        android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtemail"
+        app:layout_constraintEnd_toEndOf="@+id/txtemail"
+        app:layout_constraintHorizontal_bias="0.965"
+        app:layout_constraintStart_toStartOf="@+id/txtemail"
+        app:layout_constraintTop_toTopOf="@+id/txtemail"
+        app:srcCompat="@drawable/corpoemembros" />
+
+    <ImageButton
+        android:id="@+id/btncriarconta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
+        android:background="@drawable/registrar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.635"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/txtnu"
+        android:layout_width="252dp"
+        android:layout_height="48dp"
+        android:backgroundTint="@color/white"
+        android:ems="10"
+        android:hint="Nome de Utilizador"
+        android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.325" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtnu"
+        app:layout_constraintEnd_toEndOf="@+id/txtnu"
+        app:layout_constraintHorizontal_bias="0.965"
+        app:layout_constraintStart_toStartOf="@+id/txtnu"
+        app:layout_constraintTop_toTopOf="@+id/txtnu"
+        app:layout_constraintVertical_bias="0.461"
+        app:srcCompat="@drawable/corpoemembros" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="23dp"
+        android:layout_height="26dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtpass"
+        app:layout_constraintEnd_toEndOf="@+id/txtpass"
+        app:layout_constraintHorizontal_bias="0.969"
+        app:layout_constraintStart_toStartOf="@+id/txtpass"
+        app:layout_constraintTop_toTopOf="@+id/txtpass"
+        app:layout_constraintVertical_bias="0.363"
+        app:srcCompat="@drawable/cadeado" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/txtpassi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="276dp"
@@ -36,7 +36,7 @@
         app:srcCompat="@drawable/back" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/txtnui"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="180dp"
@@ -71,9 +71,9 @@
         android:layout_height="21dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/txtnui"
+        app:layout_constraintEnd_toEndOf="@+id/txtnui"
+        app:layout_constraintTop_toTopOf="@+id/txtnui"
         app:layout_constraintVertical_bias="0.444"
         app:srcCompat="@drawable/corpoemembros" />
 
@@ -83,9 +83,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"
         android:layout_marginRight="4dp"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName3"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName3"
+        app:layout_constraintBottom_toBottomOf="@+id/txtpassi"
+        app:layout_constraintEnd_toEndOf="@+id/txtpassi"
+        app:layout_constraintTop_toTopOf="@+id/txtpassi"
         app:layout_constraintVertical_bias="0.518"
         app:srcCompat="@drawable/cadeado" />
 
@@ -100,7 +100,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3"
+        app:layout_constraintTop_toBottomOf="@+id/txtpassi"
         app:layout_constraintVertical_bias="0.542" />
 
     <TextView

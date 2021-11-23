@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/paginainicial"
-    tools:context=".pageinitialactivity">
+    tools:context=".PageInitialActivity">
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/btnmenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
@@ -21,12 +21,12 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/ivmenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton4"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/btnmenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/lol" />
@@ -35,10 +35,21 @@
         android:id="@+id/imageView5"
         android:layout_width="338dp"
         android:layout_height="464dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintBottom_toTopOf="@+id/ivmenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/post" />
+
+    <ImageButton
+        android:id="@+id/btnvideos"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="192dp"
+        android:background="@android:drawable/ic_media_play"
+        app:layout_constraintBottom_toBottomOf="@+id/ivmenu"
+        app:layout_constraintEnd_toEndOf="@+id/ivmenu"
+        app:layout_constraintTop_toTopOf="@+id/ivmenu"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,8 @@
 package com.example.gamestepprojeto;
 
-public class Contas {
+import java.io.Serializable;
+
+public class Contas implements Serializable {
 
     String utilizador;
     String password;

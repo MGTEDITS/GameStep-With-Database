@@ -10,10 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GameStepProjeto">
         <activity
-            android:name=".criarconta"
+            android:name=".LeitorVideo"
             android:exported="true" />
         <activity
-            android:name=".pageinitialactivity"
+            android:name=".ListagemVideos"
+            android:exported="true" />
+        <activity
+            android:name=".CriarConta"
+            android:exported="true" />
+        <activity
+            android:name=".PageInitialActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

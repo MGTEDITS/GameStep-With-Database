@@ -7,19 +7,7 @@
     android:background="@drawable/paginainicial"
     tools:context=".MainActivity">
 
-    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
-        android:id="@+id/youtubePlayerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@drawable/paginainicial"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.08"
-        app:showFullScreenButton="true"
-        app:showSeekBar="true"
-        app:showYouTubeButton="false"
-        tools:layout_editor_absoluteX="16dp" />
+
 
     <TextView
         android:id="@+id/lbtitulo"

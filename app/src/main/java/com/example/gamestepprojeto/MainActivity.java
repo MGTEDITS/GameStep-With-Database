@@ -10,7 +10,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,9 +34,8 @@ public class MainActivity extends AppCompatActivity {
         txtpassi=findViewById(R.id.txtpassi);
         btniniciarsessao=findViewById(R.id.btniniciarsessao);
         registrar=findViewById(R.id.lbcriar);
-        ArrayList<Contas> contas;
 
-        contas = (ArrayList<Contas>) getIntent().getSerializableExtra("lista");
+
         //chamar a activity criarconta
 
         Intent intent = new Intent(MainActivity.this, CriarConta.class);
@@ -42,32 +44,41 @@ public class MainActivity extends AppCompatActivity {
         btniniciarsessao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                UtilizadorDAO utilizadorDAO = new UtilizadorDAO(getApplicationContext());
 
-
-                //Verificar se o Utilizador Existe
-                for (Contas name : contas) {
-
-
-
-                    if (txtnui.getText().toString().equals(name.getUtilizador().toString()))
+                if (txtnui.getText().equals(""))
+                {
+                    Toast.makeText(getApplicationContext(), "Utilizador Vazio! Por Favor Insira", Toast.LENGTH_SHORT).show();
+                }
+                else if(txtpassi.getText().equals(""))
+                {
+                    Toast.makeText(getApplicationContext(), "Palavra-Passe Vazia! Por Favor Insira", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    List<Contas> contas = utilizadorDAO.getConta(txtnui.getText().toString());
+                    if (contas.size() == 0)
                     {
-
-                        //Verificar se a password está correta
-
-                        if (txtpassi.getText().toString().equals(name.getPassword().toString()))
-                        {
-                            //Abrir a Atividade da pagina inicial
-                            Intent intent1 = new Intent(MainActivity.this, PageInitialActivity.class);
+                        Toast.makeText(getApplicationContext(), "Conta não Existe", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Contas contas1 = new Contas();
+                        contas1.setEmail(contas.get(0).getEmail());
+                        contas1.setPassword(contas.get(0).getPassword());
+                        contas1.setUtilizador(contas.get(0).getUtilizador());
+                        if (contas1.verifyPassword(contas1,txtpassi.getText().toString())){
+                            Intent intent1 = new Intent(MainActivity.this,PageInitialActivity.class);
                             startActivity(intent1);
-
-                        } else {
-                            Toast.makeText(getApplicationContext(), "Password Incorreta", Toast.LENGTH_SHORT).show();
+                        }else {
+                            Toast.makeText(getApplicationContext(), "PassWord Incorreta!", Toast.LENGTH_SHORT).show();
                         }
+
                     }
 
                 }
-            }
 
+
+
+            }
          });
 
         registrar.setOnClickListener(new View.OnClickListener() {
@@ -77,11 +88,36 @@ public class MainActivity extends AppCompatActivity {
                 //Iniciar a atividade criar conta
 
                 Intent intent = new Intent(MainActivity.this, CriarConta.class);
-                intent.putExtra("listas",contas);
                 startActivity(intent);
             }
         });
 
 
     }
+    public String hashPassword(String password){ try
+    {
+        // Create MessageDigest instance for MD5
+        MessageDigest md = MessageDigest.getInstance("MD5");
+
+        // Add password bytes to digest
+        md.update(password.getBytes());
+
+        // Get the hash's bytes
+        byte[] bytes = md.digest();
+
+        // This bytes[] has bytes in decimal format. Convert it to hexadecimal format
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < bytes.length; i++) {
+            sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+        }
+
+        // Get complete hashed password in hex format
+        password = sb.toString();
+    } catch (NoSuchAlgorithmException e) {
+        e.printStackTrace();
+    }
+
+        return password;
+    }
 }
+

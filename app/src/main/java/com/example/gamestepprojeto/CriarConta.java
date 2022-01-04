@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class CriarConta extends AppCompatActivity {
 
@@ -29,11 +30,11 @@ EditText txtcpass;
         txtemail=findViewById(R.id.txtemail);
         txtpass=findViewById(R.id.txtpass);
         txtcpass=findViewById(R.id.txtconfpass);
+
+        UtilizadorDAO utilizadorDAO = new UtilizadorDAO(this);
+        DbHelper dbHelper = new DbHelper(this);
         Intent intent = new Intent(CriarConta.this, MainActivity.class);
-        ArrayList<Contas> contaNova = new ArrayList<Contas>();
         btncriarc.setOnClickListener(new View.OnClickListener() {
-
-
 
 
             @Override
@@ -50,23 +51,11 @@ EditText txtcpass;
                     //Testar se a password Coincide
                     if (txtpass.getText().toString().matches(txtcpass.getText().toString()))
                     {
-                        if ((getIntent().getSerializableExtra("listas")) == null)
-                        {
-                            Contas c1 = new Contas(txtnu.getText().toString(), txtpass.getText().toString());
-                            contaNova.add(c1);
-                            intent.putExtra("lista", contaNova);
-                            startActivity(intent);
-                        }else{
-                            ArrayList<Contas> contas;
-                            contas = (ArrayList<Contas>) getIntent().getSerializableExtra("listas");
-                            Contas c1 = new Contas(txtnu.getText().toString(), txtpass.getText().toString());
-                            contas.add(c1);
-                            intent.putExtra("lista", contas);
-                            startActivity(intent);
-                        }
-                        //adicionar os valores a classe
 
-
+                            Contas conta = new Contas(txtnu.getText().toString(), txtpass.getText().toString(), txtemail.getText().toString() );
+                            dbHelper.inserirUtilizador(conta);
+                            startActivity(intent);
+                            enviaremail();
 
                     }
                     else {
@@ -78,5 +67,16 @@ EditText txtcpass;
             }
         });
 
+    }
+
+    private void enviaremail(){
+        String mail = txtemail.getText().toString().trim();
+        Toast.makeText(getApplicationContext(), ""+txtemail.getText().toString(), Toast.LENGTH_SHORT).show();
+        String Subject = "Verificar Conta";
+        Random r = new Random();
+        Integer i = r.nextInt((999999 - 100000) +1) + 1000;
+        String Mensagem = i.toString();
+        JavaMailAPI javaMailAPI = new JavaMailAPI(this, mail, Subject ,Mensagem);
+        javaMailAPI.execute();
     }
 }
